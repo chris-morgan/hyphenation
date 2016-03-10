@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Exceptions","A specialized hash map of pattern-score pairs."]]});

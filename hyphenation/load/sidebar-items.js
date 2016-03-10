@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error","Failure modes of pattern loading."]],"fn":[["data_file",""],["exceptions",""],["language","Constructs the default `Corpus` for a given language."],["patterns",""],["set_pattern_folder","Sets the folder where pattern and exception data are stored."]]});

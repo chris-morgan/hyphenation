@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Patterns","A basic trie, used to associate patterns to their hyphenation scores."]]});
