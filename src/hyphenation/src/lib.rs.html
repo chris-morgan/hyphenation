@@ -60,16 +60,158 @@
 <span id="17">17</span>
 <span id="18">18</span>
 <span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
+<span id="61">61</span>
+<span id="62">62</span>
+<span id="63">63</span>
+<span id="64">64</span>
+<span id="65">65</span>
+<span id="66">66</span>
+<span id="67">67</span>
+<span id="68">68</span>
+<span id="69">69</span>
+<span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
+<span id="78">78</span>
+<span id="79">79</span>
+<span id="80">80</span>
+<span id="81">81</span>
+<span id="82">82</span>
+<span id="83">83</span>
+<span id="84">84</span>
+<span id="85">85</span>
+<span id="86">86</span>
+<span id="87">87</span>
+<span id="88">88</span>
+<span id="89">89</span>
+<span id="90">90</span>
 </pre><pre class='rust '>
 <span class='comment'>// Forsaken docs justly quibble the vexed programmer&#39;s waning zeal</span>
+<span class='doccomment'>//! Text hyphenation in a variety of languages.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ## Usage</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! A typical import comprises the `Hyphenation` trait, the `Standard`</span>
+<span class='doccomment'>//! hyphenator, and the `Language` enum. This exposes the crate&#39;s core</span>
+<span class='doccomment'>//! functionality, and the set of available languages.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ```ignore</span>
+<span class='doccomment'>//! extern crate hyphenation;</span>
+<span class='comment'>//</span>
+<span class='doccomment'>//! use hyphenation::{Hyphenation, Standard, Language};</span>
+<span class='doccomment'>//! ```</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! To begin with, we must initiate the `Corpus` for our working language.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ```ignore</span>
+<span class='doccomment'>//! let english_us = hyphenation::load(Language::English_US).unwrap();</span>
+<span class='doccomment'>//! ```</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! Our English `Corpus` can now be used by *hyphenators*: iterators which</span>
+<span class='doccomment'>//! segment text in accordance with hyphenation practices, as described</span>
+<span class='doccomment'>//! by the corpus.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! The simplest (and, presently, only) hyphenator is `Standard`:</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ```ignore</span>
+<span class='doccomment'>//! let h: Standard = &quot;hyphenation&quot;.hyphenate(&amp;english_us);</span>
+<span class='doccomment'>//! ```</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! The `Standard` hyphenator does not allocate new strings, returning</span>
+<span class='doccomment'>//! slices instead.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ```ignore</span>
+<span class='doccomment'>//! let v: Vec&lt;&amp;str&gt; = h.collect();</span>
+<span class='doccomment'>//! assert_eq!(v, vec![&quot;hy&quot;, &quot;phen&quot;, &quot;ation&quot;]);</span>
+<span class='doccomment'>//! ```</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! While hyphenation is performed on a per-word basis, convenience calls</span>
+<span class='doccomment'>//! for `Hyphenation` to work with full text by default.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ```ignore</span>
+<span class='doccomment'>//! let h2: Standard = &quot;Word hyphenation by computer.&quot;.hyphenate(&amp;english_us);</span>
+<span class='doccomment'>//! let v2: Vec&lt;&amp;str&gt; = h2.collect();</span>
+<span class='doccomment'>//! assert_eq!(v2, vec![&quot;Word hy&quot;, &quot;phen&quot;, &quot;ation by com&quot;, &quot;puter.&quot;]);</span>
+<span class='doccomment'>//! ```</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! Moreover, hyphenators expose some simple methods to render hyphenated</span>
+<span class='doccomment'>//! text: `punctuate()` and `punctuate_with(string)`, which mark hyphenation</span>
+<span class='doccomment'>//! opportunities respectively with soft hyphens (Unicode `U+00AD SOFT HYPHEN`)</span>
+<span class='doccomment'>//! and any given `string`.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ```ignore</span>
+<span class='doccomment'>//! let h3 = &quot;anfractuous&quot;.hyphenate(&amp;english_us);</span>
+<span class='doccomment'>//! let s3: String = h2.clone().punctuate().collect();</span>
+<span class='doccomment'>//! assert_eq!(s3, &quot;an\u{ad}frac\u{ad}tu\u{ad}ous&quot;.to_owned());</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! let s4: String = h2.punctuate_with(&quot;-&quot;).collect()</span>
+<span class='doccomment'>//! assert_eq!(s4, &quot;an-frac-tu-ous&quot;.to_owned());</span>
+<span class='doccomment'>//! ```</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! If we would rather manipulate our text in other ways, we may employ</span>
+<span class='doccomment'>//! `opportunities()`, which returns the byte indices of hyphenation opportunities</span>
+<span class='doccomment'>//! within the string. (Internally, `opportunities()` is the fundamental method</span>
+<span class='doccomment'>//! required by `Hyphenation`; other functionality is implemented on top of it.)</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! ```ignore</span>
+<span class='doccomment'>//! let indices = &quot;hyphenation&quot;.opportunities(&amp;english_us);</span>
+<span class='doccomment'>//! assert_eq!(indices, vec![2, 6]);</span>
+<span class='doccomment'>//! ```</span>
+
 
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>fnv</span>;
-<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>lazy_static</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>serde_json</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>unicode_segmentation</span>;
 
 <span class='kw'>mod</span> <span class='ident'>klpair</span>;
+<span class='kw'>mod</span> <span class='ident'>resources</span>;
 <span class='kw'>mod</span> <span class='ident'>utilia</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>exception</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>hyphenator</span>;
@@ -79,7 +221,7 @@
 
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>hyphenator</span>::{<span class='ident'>Hyphenation</span>, <span class='ident'>Standard</span>};
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>language</span>::{<span class='ident'>Language</span>, <span class='ident'>Corpus</span>};
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>load</span>::{<span class='ident'>set_pattern_folder</span>, <span class='ident'>language</span> <span class='kw'>as</span> <span class='ident'>load</span>};
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>load</span>::{<span class='ident'>language</span> <span class='kw'>as</span> <span class='ident'>load</span>};
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

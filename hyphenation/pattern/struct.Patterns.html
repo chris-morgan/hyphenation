@@ -46,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-644' class='srclink' href='../../src/hyphenation/src/pattern.rs.html.html#16-19' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-1246' class='srclink' href='../../src/hyphenation/src/pattern.rs.html.html#18-21' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Patterns {
     pub tally: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;&gt;,
     pub descendants: <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>, <a class='struct' href='../../hyphenation/pattern/struct.Patterns.html' title='hyphenation::pattern::Patterns'>Patterns</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/core/hash/struct.BuildHasherDefault.html' title='core::hash::BuildHasherDefault'>BuildHasherDefault</a>&lt;FnvHasher&gt;&gt;,
@@ -56,8 +56,10 @@
                                   <td id='structfield.tally'><code>tally</code></td><td></td></tr><tr class='stab '>
                                   <td id='structfield.descendants'><code>descendants</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../hyphenation/pattern/struct.Patterns.html' title='hyphenation::pattern::Patterns'>Patterns</a></code></h3><div class='impl-items'><h4 id='method.empty' class='method'><code>fn <a href='#method.empty' class='fnname'>empty</a>() -&gt; <a class='struct' href='../../hyphenation/pattern/struct.Patterns.html' title='hyphenation::pattern::Patterns'>Patterns</a></code></h4>
 <div class='docblock'><p>Creates an empty <code>Patterns</code> trie.</p>
-</div><h4 id='method.insert' class='method'><code>fn <a href='#method.insert' class='fnname'>insert</a>(&amp;mut self, klpair: KLPair)</code></h4>
+</div><h4 id='method.insert' class='method'><code>fn <a href='#method.insert' class='fnname'>insert</a>(&amp;mut self, klpair: KLPair) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;&gt;</code></h4>
 <div class='docblock'><p>Inserts a Knuth-Liang hyphenation pair into the trie.</p>
+
+<p>If the pattern already existed, the old tally is returned; if not, <code>None</code> is.</p>
 </div><h4 id='method.score' class='method'><code>fn <a href='#method.score' class='fnname'>score</a>(&amp;self, word: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
 <div class='docblock'><p>Assigns a score to each potential hyphenation point.</p>
 

@@ -75,6 +75,8 @@
 <span id="32">32</span>
 <span id="33">33</span>
 <span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Data structures and methods for parsing and applying exceptions, which</span>
 <span class='doccomment'>//! assign predetermined scores to specific words.</span>
@@ -95,11 +97,13 @@
     }
 
     <span class='doccomment'>/// Inserts a Knuth-Liang exception pair into the map.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>insert</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>klpair</span>: <span class='ident'>KLPair</span>) {
-        <span class='kw'>let</span> (<span class='ident'>p</span>, <span class='ident'>tally</span>) <span class='op'>=</span> <span class='ident'>klpair</span>;
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// If the pattern already existed, the old score is returned; if not, `None` is.</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>insert</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>klpair</span>: <span class='ident'>KLPair</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u32</span><span class='op'>&gt;&gt;</span> {
+        <span class='kw'>let</span> (<span class='ident'>p</span>, <span class='ident'>score</span>) <span class='op'>=</span> <span class='ident'>klpair</span>;
         <span class='kw'>let</span> <span class='ident'>Exceptions</span>(<span class='kw-2'>ref</span> <span class='kw-2'>mut</span> <span class='ident'>m</span>) <span class='op'>=</span> <span class='op'>*</span><span class='self'>self</span>;
 
-        <span class='ident'>m</span>.<span class='ident'>insert</span>(<span class='ident'>p</span>, <span class='ident'>tally</span>);
+        <span class='ident'>m</span>.<span class='ident'>insert</span>(<span class='ident'>p</span>, <span class='ident'>score</span>)
     }
 
     <span class='doccomment'>/// Retrieves the score for each hyphenation point of `word`.</span>
