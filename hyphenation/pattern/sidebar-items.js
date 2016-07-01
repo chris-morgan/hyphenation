@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Patterns","A basic trie, used to associate patterns to their hyphenation scores."]]});
+initSidebarItems({"struct":[["Patterns","A basic trie, used to associate patterns to their hyphenation scores."]],"type":[["KLPair","A pair representing a Knuth-Liang hyphenation pattern. It comprises alphabetical characters for subword matching and the score of each hyphenation point."]]});

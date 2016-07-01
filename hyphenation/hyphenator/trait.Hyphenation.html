@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -43,30 +44,29 @@
 
     <section id='main' class="content trait">
 <h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>hyphenation</a>::<wbr><a href='index.html'>hyphenator</a>::<wbr><a class='trait' href=''>Hyphenation</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-693' class='srclink' href='../../src/hyphenation/src/hyphenator.rs.html.html#10-21' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Hyphenation&lt;Hyphenator&gt; <span class='where'>where Hyphenator: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/trait.Iterator.html' title='core::iter::Iterator'>Iterator</a></span> {
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-689' class='srclink' href='../../src/hyphenation/src/hyphenator.rs.html#10-20' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Hyphenation&lt;Hyphenator&gt; <span class='where'>where Hyphenator: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a></span> {
     fn <a href='#tymethod.opportunities' class='fnname'>opportunities</a>(self, corp: &amp;<a class='struct' href='../../hyphenation/language/struct.Corpus.html' title='hyphenation::language::Corpus'>Corpus</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;;
     fn <a href='#tymethod.hyphenate' class='fnname'>hyphenate</a>(self, corp: &amp;<a class='struct' href='../../hyphenation/language/struct.Corpus.html' title='hyphenation::language::Corpus'>Corpus</a>) -&gt; Hyphenator;
 }</pre>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.opportunities' class='method stab '><code>fn <a href='#tymethod.opportunities' class='fnname'>opportunities</a>(self, corp: &amp;<a class='struct' href='../../hyphenation/language/struct.Corpus.html' title='hyphenation::language::Corpus'>Corpus</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h3><div class='docblock'><p>Returns the indices of valid hyphenation points within the text.</p>
-</div><h3 id='tymethod.hyphenate' class='method stab '><code>fn <a href='#tymethod.hyphenate' class='fnname'>hyphenate</a>(self, corp: &amp;<a class='struct' href='../../hyphenation/language/struct.Corpus.html' title='hyphenation::language::Corpus'>Corpus</a>) -&gt; Hyphenator</code></h3><div class='docblock'><p>Returns an iterator over segments of the text separated by valid
-hyphenation points.</p>
+        <h3 id='tymethod.opportunities' class='method stab '><code>fn <a href='#tymethod.opportunities' class='fnname'>opportunities</a>(self, corp: &amp;<a class='struct' href='../../hyphenation/language/struct.Corpus.html' title='hyphenation::language::Corpus'>Corpus</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h3><div class='docblock'><p>Returns the indices of valid hyphenation points within the given word.</p>
+</div><h3 id='tymethod.hyphenate' class='method stab '><code>fn <a href='#tymethod.hyphenate' class='fnname'>hyphenate</a>(self, corp: &amp;<a class='struct' href='../../hyphenation/language/struct.Corpus.html' title='hyphenation::language::Corpus'>Corpus</a>) -&gt; Hyphenator</code></h3><div class='docblock'><p>Returns an iterator over orthographic syllables of the given word,
+separated by valid hyphenation points.</p>
 
-<p>When iterating over a word, such segments coincide with orthographic
-syllables. Note that, in some orthographies, the syllables of a hyphenated
+<p>Note that, in some orthographies, the syllables of a hyphenated
 word are not necessarily substrings of the original word.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;'a&gt; <a class='trait' href='../../hyphenation/hyphenator/trait.Hyphenation.html' title='hyphenation::hyphenator::Hyphenation'>Hyphenation</a>&lt;<a class='struct' href='../../hyphenation/hyphenator/struct.Standard.html' title='hyphenation::hyphenator::Standard'>Standard</a>&lt;'a&gt;&gt; for &amp;'a <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></li>
+    <li><code>impl&lt;'a&gt; Hyphenation&lt;<a class='struct' href='../../hyphenation/hyphenator/struct.Standard.html' title='hyphenation::hyphenator::Standard'>Standard</a>&lt;'a&gt;&gt; for &amp;'a <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></li>
 </ul><script type="text/javascript" async
-                              src="../../implementors/hyphenation/hyphenator/trait.Hyphenation.js">
-                      </script></section>
+                         src="../../implementors/hyphenation/hyphenator/trait.Hyphenation.js">
+                 </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -89,6 +89,8 @@ word are not necessarily substrings of the original word.</p>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

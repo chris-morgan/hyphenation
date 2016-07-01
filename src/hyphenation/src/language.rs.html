@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
 
     
     
@@ -302,6 +303,9 @@
 <span id="259">259</span>
 <span id="260">260</span>
 <span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Languages we can hyphenate and their default parameters, as provided by</span>
 <span class='doccomment'>//! the TeX `hyph-utf8` package.</span>
@@ -391,6 +395,7 @@
     <span class='ident'>Serbian_Cyrillic</span>,
     <span class='ident'>Serbocroatian_Cyrillic</span>,
     <span class='ident'>Serbocroatian_Latin</span>,
+    <span class='ident'>Slavonic_Church</span>,
     <span class='ident'>Slovak</span>,
     <span class='ident'>Slovenian</span>,
     <span class='ident'>Spanish</span>,
@@ -470,6 +475,7 @@
         <span class='ident'>Serbian_Cyrillic</span> <span class='op'>=&gt;</span> <span class='string'>&quot;sr-cyrl&quot;</span>,
         <span class='ident'>Serbocroatian_Cyrillic</span> <span class='op'>=&gt;</span> <span class='string'>&quot;sh-cyrl&quot;</span>,
         <span class='ident'>Serbocroatian_Latin</span> <span class='op'>=&gt;</span> <span class='string'>&quot;sh-latn&quot;</span>,
+        <span class='ident'>Slavonic_Church</span> <span class='op'>=&gt;</span> <span class='string'>&quot;cu&quot;</span>,
         <span class='ident'>Slovak</span> <span class='op'>=&gt;</span> <span class='string'>&quot;sk&quot;</span>,
         <span class='ident'>Slovenian</span> <span class='op'>=&gt;</span> <span class='string'>&quot;sl&quot;</span>,
         <span class='ident'>Spanish</span> <span class='op'>=&gt;</span> <span class='string'>&quot;es&quot;</span>,
@@ -550,6 +556,7 @@
         <span class='ident'>Serbian_Cyrillic</span> <span class='op'>=&gt;</span> (<span class='number'>2</span>, <span class='number'>2</span>),
         <span class='ident'>Serbocroatian_Cyrillic</span> <span class='op'>=&gt;</span> (<span class='number'>2</span>, <span class='number'>2</span>),
         <span class='ident'>Serbocroatian_Latin</span> <span class='op'>=&gt;</span> (<span class='number'>2</span>, <span class='number'>2</span>),
+        <span class='ident'>Slavonic_Church</span> <span class='op'>=&gt;</span> (<span class='number'>1</span>, <span class='number'>2</span>),  <span class='comment'>// NOTE: potential complications, refer to TeX package</span>
         <span class='ident'>Slovak</span> <span class='op'>=&gt;</span> (<span class='number'>2</span>, <span class='number'>3</span>),
         <span class='ident'>Slovenian</span> <span class='op'>=&gt;</span> (<span class='number'>2</span>, <span class='number'>2</span>),
         <span class='ident'>Spanish</span> <span class='op'>=&gt;</span> (<span class='number'>2</span>, <span class='number'>2</span>),
@@ -588,6 +595,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

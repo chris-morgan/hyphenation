@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
 
     
     
@@ -148,7 +149,6 @@
 <span id="105">105</span>
 <span id="106">106</span>
 <span id="107">107</span>
-<span id="108">108</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! IO operations for pattern and exception data provided by `hyph-UTF8`</span>
 <span class='doccomment'>//! and stored in the `patterns` folder.</span>
@@ -159,10 +159,9 @@
 
 <span class='kw'>use</span> <span class='ident'>serde_json</span>::{<span class='self'>self</span> <span class='kw'>as</span> <span class='ident'>json</span>};
 
-<span class='kw'>use</span> <span class='ident'>klpair</span>::<span class='ident'>KLPair</span>;
 <span class='kw'>use</span> <span class='ident'>language</span>::{<span class='ident'>Corpus</span>, <span class='ident'>Language</span>, <span class='ident'>mins</span>, <span class='ident'>tag</span>};
 <span class='kw'>use</span> <span class='ident'>exception</span>::{<span class='ident'>Exceptions</span>};
-<span class='kw'>use</span> <span class='ident'>pattern</span>::{<span class='ident'>Patterns</span>};
+<span class='kw'>use</span> <span class='ident'>pattern</span>::{<span class='ident'>KLPair</span>, <span class='ident'>Patterns</span>};
 <span class='kw'>use</span> <span class='ident'>resources</span>::<span class='ident'>ResourceId</span>;
 
 
@@ -178,14 +177,14 @@
 
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>patterns</span>(<span class='ident'>lang</span>: <span class='ident'>Language</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>KLPair</span><span class='op'>&gt;</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>f</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>data_file</span>(<span class='ident'>lang</span>, <span class='string'>&quot;pat&quot;</span>));
-    <span class='kw'>let</span> <span class='ident'>pairs</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span>(<span class='ident'>String</span>, <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u32</span><span class='op'>&gt;</span>)<span class='op'>&gt;</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>json</span>::<span class='ident'>from_slice</span>(<span class='ident'>f</span>));
+    <span class='kw'>let</span> <span class='ident'>pairs</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span>(<span class='ident'>String</span>, <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>)<span class='op'>&gt;</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>json</span>::<span class='ident'>from_slice</span>(<span class='ident'>f</span>));
 
     <span class='prelude-val'>Ok</span>(<span class='ident'>pairs</span>)
 }
 
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>exceptions</span>(<span class='ident'>lang</span>: <span class='ident'>Language</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>KLPair</span><span class='op'>&gt;</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>f</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>data_file</span>(<span class='ident'>lang</span>, <span class='string'>&quot;hyp&quot;</span>));
-    <span class='kw'>let</span> <span class='ident'>pairs</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span>(<span class='ident'>String</span>, <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u32</span><span class='op'>&gt;</span>)<span class='op'>&gt;</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>json</span>::<span class='ident'>from_reader</span>(<span class='ident'>f</span>));
+    <span class='kw'>let</span> <span class='ident'>pairs</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span>(<span class='ident'>String</span>, <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>)<span class='op'>&gt;</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>json</span>::<span class='ident'>from_slice</span>(<span class='ident'>f</span>));
 
     <span class='prelude-val'>Ok</span>(<span class='ident'>pairs</span>)
 }
@@ -282,6 +281,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

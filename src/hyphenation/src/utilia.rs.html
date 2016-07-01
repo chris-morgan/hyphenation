@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
 
     
     
@@ -117,7 +118,7 @@
 
 
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>Interspersable</span> : <span class='ident'>Iterator</span> {
-    <span class='kw'>fn</span> <span class='ident'>intersperse</span>(<span class='self'>self</span>, <span class='ident'>e</span>: <span class='ident'>Self</span>::<span class='ident'>Item</span>) <span class='op'>-&gt;</span> <span class='ident'>Intersperse</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;</span> <span class='kw'>where</span> <span class='kw'>Self</span>: <span class='ident'>Sized</span>;
+    <span class='kw'>fn</span> <span class='ident'>intersperse</span>(<span class='self'>self</span>, <span class='ident'>e</span>: <span class='self'>Self</span>::<span class='ident'>Item</span>) <span class='op'>-&gt;</span> <span class='ident'>Intersperse</span><span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;</span> <span class='kw'>where</span> <span class='self'>Self</span>: <span class='ident'>Sized</span>;
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>I</span><span class='op'>&gt;</span> <span class='ident'>Interspersable</span> <span class='kw'>for</span> <span class='ident'>I</span> <span class='kw'>where</span> <span class='ident'>I</span>: <span class='ident'>Iterator</span> {
@@ -156,6 +157,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

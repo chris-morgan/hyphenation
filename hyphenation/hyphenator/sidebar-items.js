@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Standard","The `Standard` hyphenator iterates over a string, returning slices delimited by string boundaries and valid hyphenation points."]],"trait":[["Hyphenation",""]]});
+initSidebarItems({"struct":[["Standard","The `Standard` hyphenator iterates over a string, returning slices delimited by string boundaries and valid hyphenation points."]],"trait":[["FullTextHyphenation",""],["Hyphenation",""]]});
